@@ -59,8 +59,8 @@ public class OnLongClickListenerStudentRecord implements View.OnLongClickListene
         final EditText editTextStudentEmail = (EditText) formElementsView.findViewById(R.id.editTextStudentEmail);
         new AlertDialog.Builder(context)
                 .setView(formElementsView)
-                .setTitle("Edit Record")
-                .setPositiveButton("Save Changes",
+                .setTitle("Editar")
+                .setPositiveButton("Guardar Cambios",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 ObjectStudent objectStudent = new ObjectStudent();
@@ -70,9 +70,9 @@ public class OnLongClickListenerStudentRecord implements View.OnLongClickListene
                                 boolean updateSuccessful = tableControllerStudent.update(objectStudent);
 
                                 if(updateSuccessful){
-                                    Toast.makeText(context, "Student record was updated.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Registro Actualizado.", Toast.LENGTH_SHORT).show();
                                 }else{
-                                    Toast.makeText(context, "Unable to update student record.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "No se pudo actualizar .", Toast.LENGTH_SHORT).show();
 
                                 }
                                 ((MainActivity) context).countRecords();

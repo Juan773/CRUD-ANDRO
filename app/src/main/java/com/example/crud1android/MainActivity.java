@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public void countRecords() {
         int recordCount = new TableControllerStudent(this).count();
         TextView textViewRecordCount = (TextView) findViewById(R.id.textViewRecordCount);
-        textViewRecordCount.setText(recordCount + " records found.");
+        textViewRecordCount.setText(recordCount + " Registros Encontrados.");
     }
     public void readRecords() {
 
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
             TextView locationItem = new TextView(this);
             locationItem.setPadding(8, 8, 8, 8);
-            locationItem.setText("No records yet.");
+            locationItem.setText("No hay registros encontrados.");
 
             linearLayoutRecords.addView(locationItem);
         }

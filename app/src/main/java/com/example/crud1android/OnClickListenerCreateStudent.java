@@ -18,8 +18,8 @@ public class OnClickListenerCreateStudent implements View.OnClickListener {
         final View formElementsView = inflater.inflate(R.layout.student_input_form, null, false);
         final EditText editTextStudentFirstname = (EditText) formElementsView.findViewById(R.id.editTextStudentFirstname);
         final EditText editTextStudentEmail = (EditText) formElementsView.findViewById(R.id.editTextStudentEmail);
-        new AlertDialog.Builder(context).setView(formElementsView).setTitle("Create Student").setPositiveButton
-                ("Add", new DialogInterface.OnClickListener()  {
+        new AlertDialog.Builder(context).setView(formElementsView).setTitle("Registrar").setPositiveButton
+                ("Añadir", new DialogInterface.OnClickListener()  {
 
                     public void onClick(DialogInterface dialog, int id) {
 
@@ -34,9 +34,9 @@ public class OnClickListenerCreateStudent implements View.OnClickListener {
 
                         boolean createSuccessful = new TableControllerStudent(context).create(objectStudent);
                         if(createSuccessful){
-                            Toast.makeText(context, "Student information was saved.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Informacion Guardada", Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(context, "Unable to save student information.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "No se pudo guardar.", Toast.LENGTH_SHORT).show();
 
                             ((MainActivity) context).readRecords();
                         }

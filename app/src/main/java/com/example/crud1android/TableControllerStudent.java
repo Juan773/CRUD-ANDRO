@@ -17,8 +17,8 @@ public class TableControllerStudent extends DatabaseHandler {
 
         ContentValues values = new ContentValues();
 
-        values.put("firstname", objectStudent.firstname);
-        values.put("email", objectStudent.email);
+        values.put("Nombre", objectStudent.firstname);
+        values.put("Correo", objectStudent.email);
 
         String where = "id = ?";
 
@@ -26,7 +26,7 @@ public class TableControllerStudent extends DatabaseHandler {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        boolean updateSuccessful = db.update("students", values, where, whereArgs) > 0;
+        boolean updateSuccessful = db.update("Estudiantes", values, where, whereArgs) > 0;
         db.close();
 
         return updateSuccessful;
@@ -36,7 +36,7 @@ public class TableControllerStudent extends DatabaseHandler {
         boolean deleteSuccessful = false;
 
         SQLiteDatabase db = this.getWritableDatabase();
-        deleteSuccessful = db.delete("students", "id ='" + id + "'", null) > 0;
+        deleteSuccessful = db.delete("Estudiantes", "id ='" + id + "'", null) > 0;
         db.close();
 
         return deleteSuccessful;
@@ -46,12 +46,12 @@ public class TableControllerStudent extends DatabaseHandler {
 
         ContentValues values = new ContentValues();
 
-        values.put("firstname", objectStudent.firstname);
-        values.put("email", objectStudent.email);
+        values.put("Nombre", objectStudent.firstname);
+        values.put("Correo", objectStudent.email);
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        boolean createSuccessful = db.insert("students", null, values) > 0;
+        boolean createSuccessful = db.insert("Estudiantes", null, values) > 0;
         db.close();
 
         return createSuccessful;
@@ -80,8 +80,8 @@ public class TableControllerStudent extends DatabaseHandler {
         if (cursor.moveToFirst()) {
 
             int id = Integer.parseInt(cursor.getString(cursor.getColumnIndex("id")));
-            String firstname = cursor.getString(cursor.getColumnIndex("firstname"));
-            String email = cursor.getString(cursor.getColumnIndex("email"));
+            String firstname = cursor.getString(cursor.getColumnIndex("Nombre"));
+            String email = cursor.getString(cursor.getColumnIndex("Correo"));
 
             objectStudent = new ObjectStudent();
             objectStudent.id = id;
@@ -109,8 +109,8 @@ public class TableControllerStudent extends DatabaseHandler {
             do {
 
                 int id = Integer.parseInt(cursor.getString(cursor.getColumnIndex("id")));
-                String studentFirstname = cursor.getString(cursor.getColumnIndex("firstname"));
-                String studentEmail = cursor.getString(cursor.getColumnIndex("email"));
+                String studentFirstname = cursor.getString(cursor.getColumnIndex("Nombre"));
+                String studentEmail = cursor.getString(cursor.getColumnIndex("Correo"));
 
                 ObjectStudent objectStudent = new ObjectStudent();
                 objectStudent.id = id;
