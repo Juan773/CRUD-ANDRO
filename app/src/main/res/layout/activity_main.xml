@@ -12,27 +12,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="137dp"
-        android:layout_marginLeft="137dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginRight="136dp"
-        android:text="Registrar Alumno"
+        android:layout_marginStart="122dp"
+        android:layout_marginLeft="122dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginBottom="120dp"
+        android:text="Registrar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="194dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewRecordCount"
+        android:gravity="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonCreateStudent"
-        android:gravity="center"
-        android:padding="1dp"
-        android:text="0 Registros"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="343dp" />
-
+        android:text="0 Registros encontrados"
+        android:padding="1dp" />
     <ScrollView
         android:id="@+id/scrollViewRecords"
         android:layout_width="match_parent"

@@ -10,7 +10,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:hint="Nombre"
-        android:singleLine="true">
+        android:singleLine="true" >
 
         <requestFocus />
     </EditText>
@@ -19,8 +19,8 @@
         android:id="@+id/editTextStudentEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextStudentFirstname"
         android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextStudentFirstname"
         android:hint="Correo"
         android:singleLine="true" />
 

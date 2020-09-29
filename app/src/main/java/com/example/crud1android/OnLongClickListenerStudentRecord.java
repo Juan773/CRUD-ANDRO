@@ -17,25 +17,22 @@ public class OnLongClickListenerStudentRecord implements View.OnLongClickListene
 
         context = view.getContext();
         id = view.getTag().toString();
-        final CharSequence[] items = { "Edit", "Delete" };
+        final CharSequence[] items = { "Editar", "Eliminar" };
 
-        new AlertDialog.Builder(context).setTitle("Student Record")
+        new AlertDialog.Builder(context).setTitle("Registros")
                 .setItems(items, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int item) {
-                        if
-                        (item == 0) {
-
+                        if (item == 0) {
                             editRecord(Integer.parseInt(id));
-
                         }
                         else if (item == 1) {
 
                             boolean deleteSuccessful = new TableControllerStudent(context).delete(Integer.parseInt(id));
 
                             if (deleteSuccessful){
-                                Toast.makeText(context, "Student record was deleted.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Registro Eliminado", Toast.LENGTH_SHORT).show();
                             }else{
-                                Toast.makeText(context, "Unable to delete student record.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "No se pudo Eliminar", Toast.LENGTH_SHORT).show();
                             }
 
                             ((MainActivity) context).countRecords();
@@ -44,9 +41,7 @@ public class OnLongClickListenerStudentRecord implements View.OnLongClickListene
                         }
                         dialog.dismiss();
 
-
                     }
-
                 }).show();
         return false;
     }
@@ -57,9 +52,11 @@ public class OnLongClickListenerStudentRecord implements View.OnLongClickListene
         final View formElementsView = inflater.inflate(R.layout.student_input_form, null, false);
         final EditText editTextStudentFirstname = (EditText) formElementsView.findViewById(R.id.editTextStudentFirstname);
         final EditText editTextStudentEmail = (EditText) formElementsView.findViewById(R.id.editTextStudentEmail);
+        editTextStudentFirstname.setText(objectStudent.firstname);
+        editTextStudentEmail.setText(objectStudent.email);
         new AlertDialog.Builder(context)
                 .setView(formElementsView)
-                .setTitle("Editar")
+                .setTitle("Editar Registro")
                 .setPositiveButton("Guardar Cambios",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -67,18 +64,16 @@ public class OnLongClickListenerStudentRecord implements View.OnLongClickListene
                                 objectStudent.id = studentId;
                                 objectStudent.firstname = editTextStudentFirstname.getText().toString();
                                 objectStudent.email = editTextStudentEmail.getText().toString();
+                                dialog.cancel();
                                 boolean updateSuccessful = tableControllerStudent.update(objectStudent);
 
                                 if(updateSuccessful){
-                                    Toast.makeText(context, "Registro Actualizado.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Registro Actualizado", Toast.LENGTH_SHORT).show();
                                 }else{
-                                    Toast.makeText(context, "No se pudo actualizar .", Toast.LENGTH_SHORT).show();
-
+                                    Toast.makeText(context, "No se pudo actualizar", Toast.LENGTH_SHORT).show();
                                 }
                                 ((MainActivity) context).countRecords();
                                 ((MainActivity) context).readRecords();
-
-                                dialog.cancel();
                             }
 
                         }).show();
